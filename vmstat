@@ -1,1 +1,45 @@
-Przykładowy tekst
+Opis
+VMSTAT raportuje informacje o procesach, pamięci, stronicowaniu, bloku IO, pułapki, aktywność dysku i procesora.
+Pierwszy wygenerowany raport zawiera średnie wartości od ostatniego ponownego uruchomienia. Dodatkowe raporty zawierają informacje na temat okresu pobierania próbek poprzez opóźnienie wskazane w poleceniu w tym przypadku 2 sekundy. Raporty dotyczące procesów i pamięci są natychmiastowe w obu przypadkach.
+
+Użycie i opis danych wyjściowych
+root@Debian-client1:~# vmstat 2
+procs -----------memory----------    ---swap-- -----io----  -system--  ------cpu-----
+ r  b   swpd   free   buff  cache     si   so    bi    bo    in   cs     us sy id  wa st
+ 0  0      0 1848812  12992  83700    0    0   383   80   315  164   0  1 99   0  0
+ 0  0      0 1848560  12992  83736    0    0     0     0     285   93    0  0 100  0  0
+ 0  0      0 1848560  12992  83736    0    0     0     0     275   96    0  0 100  0  0
+ 0  0      0 1848560  13000  83736    0    0     0    14    294  101   0  0 100  0  0
+ 0  0      0 1848560  13000  83736    0    0     0     0     291   93    0  0 100  0  0
+ 0  0      0 1848560  13000  83736    0    0     0     0     274   89    0  0 100  0  0
+ 0  0      0 1848560  13000  83736    0    0     0     0     287   89    0  0 100  0  0
+Procs
+        r: Liczba możliwych do uruchomienia procesów (działających lub oczekujących na czas wykonania).
+        b: Liczba zablokowanych procesów oczekujących na zakończenie operacji we/wy.
+Memory
+        Wpływ na to ma opcja --unit. jednostka to kB
+        swpd: ilość używanej pamięci wymiany.
+        free: ilość wolnej pamięci.
+        buff: ilość pamięci używanej jako bufory, czyli ile jądro przeznacza pamięci RAM na dane zanim zapisze je na dysku
+        cache: ilość pamięci używanej jako pamięć podręczna, czyli pamięć która ma w sobie kopie danych niedawno odczytanych lub zapisanych na dysku, znajduje się w RAM
+        inact: ilość nieaktywnej pamięci. (-opcja)
+        aktywny: ilość aktywnej pamięci. (-opcja)
+SWAP
+        Wpływ na to ma opcja --unit.
+        si: Ilość pamięci zamienionej z dysku (/s).
+        so: Ilość pamięci zamienionej na dysk (/s).
+IO
+        bi: Kibibajt odebrany z urządzenia blokowego (KiB/s).
+        bo: Kibibajt wysłany do urządzenia blokowego (KiB/s).
+System
+        in: Liczba przerwań na sekundę, łącznie z zegarem.
+        cs: liczba przełączeń kontekstu na sekundę.
+CPU
+        Są to wartości procentowe całkowitego czasu procesora w %.
+        us: Czas spędzony na uruchamianiu kodu innego niż jądro. (czas użytkownika, w tym miło spędzony czas)
+        sy: Czas spędzony na uruchomieniu kodu jądra. (czas systemu)
+        id: Czas spędzony bezczynnie. Przed wersją Linuksa 2.5.41 obejmuje to czas oczekiwania na wejście/wyjście.
+        wa: Czas spędzony na czekaniu na IO. Przed Linuksem 2.5.41, zawarte w idle.
+        st: Czas skradziony z maszyny wirtualnej. Przed Linuksem 2.6.11, nieznane.
+        gu: Czas spędzony na uruchomieniu kodu gościa KVM (czas gościa, w tym miłosierdzie gościa).
+
