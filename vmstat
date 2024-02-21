@@ -1,6 +1,8 @@
 Opis
 VMSTAT raportuje informacje o procesach, pamięci, stronicowaniu, bloku IO, pułapki, aktywność dysku i procesora.
-Pierwszy wygenerowany raport zawiera średnie wartości od ostatniego ponownego uruchomienia. Dodatkowe raporty zawierają informacje na temat okresu pobierania próbek poprzez opóźnienie wskazane w poleceniu w tym przypadku 2 sekundy. Raporty dotyczące procesów i pamięci są natychmiastowe w obu przypadkach.
+Pierwszy wygenerowany raport zawiera średnie wartości od ostatniego ponownego uruchomienia. 
+Dodatkowe raporty zawierają informacje na temat okresu pobierania próbek poprzez opóźnienie wskazane w poleceniu w tym przypadku 2 sekundy. 
+Raporty dotyczące procesów i pamięci są natychmiastowe w obu przypadkach.
 
 Użycie i opis danych wyjściowych
 root@Debian-client1:~# vmstat 2
